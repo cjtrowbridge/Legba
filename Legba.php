@@ -31,22 +31,29 @@ include_once('LegbaSession.php');
 class Legba{
   
   //Instantiate null references to all the subclasses
-  private $Cache        = null;
-  private $Cron         = null;
-  private $Cryptography = null;
-  private $Debug        = null;
-  private $Event        = null;
-  private $Permission   = null;
-  private $Plugin       = null;
-  private $Query        = null;
-  private $Router       = null;
-  private $Session      = null;
+  private $objCache        = null;
+  private $objCron         = null;
+  private $objCryptography = null;
+  private $objDebug        = null;
+  private $objEvent        = null;
+  private $objPermission   = null;
+  private $objPlugin       = null;
+  private $objQuery        = null;
+  private $objRouter       = null;
+  private $objSession      = null;
 
-  //This will hold all the events and their code
-  private $LegbaEvent = array();
+  //This holds the events and the code which will be triggered when the event happens
+  private $arrEvent = array();
+  
+  //This holds the environment variables
+  private $arrEnvironment == array();
   
   //Native class primitives
-  function __construct(){
+  function __construct($arrEnvironment = null){
+    //If no environment array is passed in, set it to an empty array
+    if($arrEnvironment == null){
+      $arrEnvironment = array();
+    }
     //Check for config file and include it or prompt to create one
     //Check for session, and load it or create a new one
   }
@@ -59,63 +66,63 @@ class Legba{
   
   //Accessors for Subclasses: Instantiate them if they have not yet been instantiated, or else return them.
   public function cache(){
-    if($this -> $Cache == null){
-      $this -> $Cache = new LegbaCache();
+    if($this -> $objCache == null){
+      $this -> $objCache = new LegbaCache();
     }
-    return $this -> $Cache;
+    return $this -> $objCache;
   }
   public function cron(){
-    if($this -> $Cron == null){
-      $this -> $Cron = new LegbaCron();
+    if($this -> $ojbCron == null){
+      $this -> $ojbCron = new LegbaCron();
     }
-    return $this -> $Cron;
+    return $this -> $ojbCron;
   }
   public function cryptography(){
-    if($this -> $Cryptography == null){
-      $this -> $Cryptography = new LegbaCryptography();
+    if($this -> $objCryptography == null){
+      $this -> $objCryptography = new LegbaCryptography();
     }
-    return $this -> $Cryptography;
+    return $this -> $objCryptography;
   }
   public function debug(){
-    if($this -> $Debug == null){
-      $this -> $Debug = new LegbaDebug();
+    if($this -> $objDebug == null){
+      $this -> $objDebug = new LegbaDebug();
     }
-    return $this -> $Debug;
+    return $this -> $objDebug;
   }
   public function event(){
-    if($this -> $Debug == null){
-      $this -> $Debug = new LegbaDebug();
+    if($this -> $objEvent == null){
+      $this -> $objEvent = new LegbaEvent();
     }
-    return $this -> $Debug;
+    return $this -> $objEvent;
   }
   public function permission(){
-    if($this -> $Permission == null){
-      $this -> $Permission = new LegbaPermission();
+    if($this -> $objPermission == null){
+      $this -> $objPermission = new LegbaPermission();
     }
-    return $this -> $Permissions;
+    return $this -> $objPermission;
   }
   public function plugin(){
-    if($this -> $Plugin == null){
-      $this -> $Plugin = new LegbaPlugin();
+    if($this -> $objPlugin == null){
+      $this -> $objPlugin = new LegbaPlugin();
     }
-    return $this -> $Plugins;
+    return $this -> $objPlugin;
   }
   public function query(){
-    if($this -> $Query == null){
-      $this -> $Query = new LegbaQuery();
+    if($this -> $objQuery == null){
+      $this -> $objQuery = new LegbaQuery();
     }
-    return $this -> $Query;
+    return $this -> $objQuery;
   }
   public function router(){
-    if($this -> $Router == null){
-      $this -> $Router = new LegbaRouter();
+    if($this -> $objRouter == null){
+      $this -> $objRouter = new LegbaRouter();
     }
-    return $this -> $Router;
+    return $this -> $objRouter;
   }
   public function session(){
-    if($this -> $Session == null){
-      $this -> $Session = new LegbaSession();
+    if($this -> $objSession == null){
+      $this -> $objSession = new LegbaSession();
     }
-    return $this -> $Session;
+    return $this -> $objSession;
   }
 }
