@@ -28,112 +28,94 @@ include_once('LegbaQuery.php');
 include_once('LegbaRouter.php');
 include_once('LegbaSession.php');
 
-
 class Legba{
   
-  function __construct() {
+  //Instantiate null references to all the subclasses
+  private $Cache        = null;
+  private $Cron         = null;
+  private $Cryptography = null;
+  private $Debug        = null;
+  private $Event        = null;
+  private $Permission   = null;
+  private $Plugin       = null;
+  private $Query        = null;
+  private $Router       = null;
+  private $Session      = null;
+
+  //This will hold all the events and their code
+  private $LegbaEvent = array();
+  
+  //Native class primitives
+  function __construct(){
     //Check for config file and include it or prompt to create one
-    
-    //Instantiate null references to all the subclasses
-    $Cache        = null;
-    $Cron         = null;
-    $Cryptography = null;
-    $Debug        = null;
-    $Event        = null;
-    $Permission   = null;
-    $Plugin       = null;
-    $Query        = null;
-    $Router       = null;
-    $Session      = null;
-    
-    global $LegbaEvent = array(); //This will hold all the events and their code
-    
     //Check for session, and load it or create a new one
-    
   }
-  
-  function __destruct() {
-    //TODO
-    
+  function __destruct(){
+    //TODO it's not clear what will need to go here, but this will come once all the other prototypes are implemented
   }
-  
-  function __call() {
+  function __call(){
     //TODO Include graceful error handling
-    
   }
   
-  /*
-    Accessors for Subclasses: Instantiate them if they have not yet been instantiated, or else return them.
-  */
-  
+  //Accessors for Subclasses: Instantiate them if they have not yet been instantiated, or else return them.
   public function cache(){
     if($this -> $Cache == null){
       $this -> $Cache = new LegbaCache();
     }
     return $this -> $Cache;
   }
-  
   public function cron(){
     if($this -> $Cron == null){
       $this -> $Cron = new LegbaCron();
     }
     return $this -> $Cron;
   }
-  
   public function cryptography(){
     if($this -> $Cryptography == null){
       $this -> $Cryptography = new LegbaCryptography();
     }
     return $this -> $Cryptography;
   }
-  
   public function debug(){
     if($this -> $Debug == null){
       $this -> $Debug = new LegbaDebug();
     }
     return $this -> $Debug;
   }
-  
   public function event(){
     if($this -> $Debug == null){
       $this -> $Debug = new LegbaDebug();
     }
     return $this -> $Debug;
   }
-  
   public function permission(){
     if($this -> $Permission == null){
       $this -> $Permission = new LegbaPermission();
     }
     return $this -> $Permissions;
   }
-  
   public function plugin(){
     if($this -> $Plugin == null){
       $this -> $Plugin = new LegbaPlugin();
     }
     return $this -> $Plugins;
   }
-  
   public function query(){
     if($this -> $Query == null){
       $this -> $Query = new LegbaQuery();
     }
     return $this -> $Query;
   }
-  
   public function router(){
     if($this -> $Router == null){
       $this -> $Router = new LegbaRouter();
     }
     return $this -> $Router;
   }
-  
   public function session(){
     if($this -> $Session == null){
       $this -> $Session = new LegbaSession();
     }
     return $this -> $Session;
   }
-  
 }
