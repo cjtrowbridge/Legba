@@ -1,6 +1,6 @@
 <?php
 
-class LegbaSessions{
+class LegbaSession{
   
   
   private function init(){
