@@ -20,11 +20,11 @@
 include_once('LegbaCache.php');
 include_once('LegbaCron.php');
 include_once('LegbaCryptography.php');
+include_once('LegbaDatabase.php');
 include_once('LegbaDebug.php');
 include_once('LegbaEvent.php');
 include_once('LegbaPermission.php');
 include_once('LegbaPlugin.php');
-include_once('LegbaQuery.php');
 include_once('LegbaRouter.php');
 include_once('LegbaSession.php');
 
@@ -34,11 +34,11 @@ class Legba{
   private $objCache        = null;
   private $objCron         = null;
   private $objCryptography = null;
+  private $objDatabase     = null;
   private $objDebug        = null;
   private $objEvent        = null;
   private $objPermission   = null;
   private $objPlugin       = null;
-  private $objQuery        = null;
   private $objRouter       = null;
   private $objSession      = null;
 
@@ -46,7 +46,10 @@ class Legba{
   private $arrEvent = array();
   
   //This holds the environment variables
-  private $arrEnvironment == array();
+  private $arrEnvironment = array();
+  
+  //Initialize selected database to an empty string.
+  private $strSelectedDatabase = '';
   
   //Native class primitives
   function __construct($arrEnvironment = null){
@@ -83,6 +86,13 @@ class Legba{
     }
     return $this -> $objCryptography;
   }
+  public function database($strDatabase = null){
+    $this -> $strSelectedDatabase = $strDatabase;
+    if($this -> $objDatabase == null){
+      $this -> $objDatabase = new LegbaDatabase();
+    }
+    return $this -> $objDatabase;
+  }
   public function debug(){
     if($this -> $objDebug == null){
       $this -> $objDebug = new LegbaDebug();
@@ -106,12 +116,6 @@ class Legba{
       $this -> $objPlugin = new LegbaPlugin();
     }
     return $this -> $objPlugin;
-  }
-  public function query(){
-    if($this -> $objQuery == null){
-      $this -> $objQuery = new LegbaQuery();
-    }
-    return $this -> $objQuery;
   }
   public function router(){
     if($this -> $objRouter == null){
