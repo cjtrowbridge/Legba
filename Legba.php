@@ -34,7 +34,6 @@ class Legba{
   private $objCache        = null;
   private $objCron         = null;
   private $objCryptography = null;
-  private $objDatabase     = null;
   private $objDebug        = null;
   private $objEvent        = null;
   private $objPermission   = null;
@@ -86,12 +85,9 @@ class Legba{
     }
     return $this -> $objCryptography;
   }
-  public function database($strDatabase = null){
-    $this -> $strSelectedDatabase = $strDatabase;
-    if($this -> $objDatabase == null){
-      $this -> $objDatabase = new LegbaDatabase();
-    }
-    return $this -> $objDatabase;
+  public function database($strDatabase){
+    $objDatabase = new LegbaDatabase($strDatabase);
+    return $objDatabase;
   }
   public function debug(){
     if($this -> $objDebug == null){
