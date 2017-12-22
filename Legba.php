@@ -27,6 +27,7 @@ include_once('LegbaPermission.php');
 include_once('LegbaPlugin.php');
 include_once('LegbaRouter.php');
 include_once('LegbaSession.php');
+include_once('LegbaUser.php');
 
 class Legba{
   
@@ -40,6 +41,7 @@ class Legba{
   private $objPlugin       = null;
   private $objRouter       = null;
   private $objSession      = null;
+  private $objUser         = null;
 
   //This holds the events and the code which will be triggered when the event happens
   private $arrEvent = array();
@@ -124,5 +126,11 @@ class Legba{
       $this -> $objSession = new LegbaSession();
     }
     return $this -> $objSession;
+  }
+  public function user(){
+    if($this -> $objUSer == null){
+      $this -> $objUSer = new LegbaUser();
+    }
+    return $this -> $objUSer;
   }
 }
