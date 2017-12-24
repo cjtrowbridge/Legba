@@ -47,7 +47,7 @@ class Legba{
   private $arrEvent = array();
   
   //This holds the environment variables
-  private $arrEnvironment = array();
+  private $arrEnvironment = null;
   
   //Initialize selected database to an empty string.
   private $strSelectedDatabase = '';
@@ -69,65 +69,65 @@ class Legba{
   }
   
   //Accessors for Subclasses: Instantiate them if they have not yet been instantiated, or else return them.
-  public function cache(){
+  public function &cache(){
     if($this -> $objCache == null){
       $this -> $objCache = new LegbaCache();
     }
     return $this -> $objCache;
   }
-  public function cron(){
+  public function &cron(){
     if($this -> $ojbCron == null){
       $this -> $ojbCron = new LegbaCron();
     }
     return $this -> $ojbCron;
   }
-  public function cryptography(){
+  public function &cryptography(){
     if($this -> $objCryptography == null){
       $this -> $objCryptography = new LegbaCryptography();
     }
     return $this -> $objCryptography;
   }
-  public function database($strDatabase){
+  public function &database($strDatabase){
     $objDatabase = new LegbaDatabase($strDatabase, $this->$arrEnvironment);
     return $objDatabase;
   }
-  public function debug(){
+  public function &debug(){
     if($this -> $objDebug == null){
       $this -> $objDebug = new LegbaDebug();
     }
     return $this -> $objDebug;
   }
-  public function event(){
+  public function &event(){
     if($this -> $objEvent == null){
       $this -> $objEvent = new LegbaEvent();
     }
     return $this -> $objEvent;
   }
-  public function permission(){
+  public function &permission(){
     if($this -> $objPermission == null){
       $this -> $objPermission = new LegbaPermission();
     }
     return $this -> $objPermission;
   }
-  public function plugin(){
+  public function &plugin(){
     if($this -> $objPlugin == null){
       $this -> $objPlugin = new LegbaPlugin();
     }
     return $this -> $objPlugin;
   }
-  public function router(){
+  public function &router(){
     if($this -> $objRouter == null){
       $this -> $objRouter = new LegbaRouter();
     }
     return $this -> $objRouter;
   }
-  public function session(){
+  public function &session(){
     if($this -> $objSession == null){
       $this -> $objSession = new LegbaSession();
     }
     return $this -> $objSession;
   }
-  public function user(){
+  public function &user(){
     if($this -> $objUSer == null){
       $this -> $objUSer = new LegbaUser();
     }
