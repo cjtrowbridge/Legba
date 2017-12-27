@@ -77,6 +77,9 @@ class Legba{
     return $this -> $objCache;
   }
   public function &config(){
+    if(!(file_exists('Config.php'))){
+      return false;
+    }
     if($this -> $objConfig == null){
       $this -> $objConfig = new LegbaConfig();
     }
