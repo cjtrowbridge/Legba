@@ -18,6 +18,7 @@
 
 //Include the subclasse files
 include_once('LegbaCache.php');
+include_once('LegbaConfig.php');
 /*
 include_once('LegbaCron.php');
 include_once('LegbaCryptography.php');
@@ -34,6 +35,7 @@ class Legba{
   
   //Instantiate null references to all the subclasses
   private $objCache        = null;
+  private $objConfig       = null;
   private $objCron         = null;
   private $objCryptography = null;
   private $objDebug        = null;
@@ -73,6 +75,12 @@ class Legba{
       $this -> $objCache = new LegbaCache();
     }
     return $this -> $objCache;
+  }
+  public function &config(){
+    if($this -> $objConfig == null){
+      $this -> $objConfig = new LegbaConfig();
+    }
+    return $this -> $objConfig;
   }
   public function &cron(){
     if($this -> $ojbCron == null){
