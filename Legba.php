@@ -48,9 +48,10 @@ class Legba{
 
   //This holds the events and the code which will be triggered when the event happens
   private $arrEvent = array();
-  
+  //This holds the config settings
+  private $arrConfig = false;
   //This holds the environment variables
-  private $arrEnvironment = null;
+  private $arrEnvironment = false;
   
   //Native class primitives
   function __construct(&$arrEnvironment = null){
@@ -77,11 +78,8 @@ class Legba{
     return $this -> $objCache;
   }
   public function &config(){
-    if(!(file_exists('Config.php'))){
-      return false;
-    }
     if($this -> $objConfig == null){
-      $this -> $objConfig = new LegbaConfig();
+      $this -> $objConfig = new LegbaConfig($this, $arrConfig, $arrEnvironment);
     }
     return $this -> $objConfig;
   }
