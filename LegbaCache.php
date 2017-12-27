@@ -4,10 +4,7 @@ class LegbaCache{
 
   //TODO this needs to be split into several more subclasses for each type of cache
   
-  //TODO this should come from the environment file unless it is not set
-  
-  private const ARRAY_CACHE_FILE_PREFACE = '<?php /* File Created by Legba Array Cache Engine */'.PHP_EOL;
-  
+  /*
   public function cache->memory->write($Identifier, $Data){
     //Saves the data to the specified identifier in memory cache. 
     
@@ -37,18 +34,36 @@ class LegbaCache{
     //Returns the contents from disk cache matching the identifier, or else false.
     
   }
+  */
   
-  private function cache->arrayToFile->write($variableName){
-    //Takes a string variable name like 'Debug' for $Debug and saves it to a php file in the webroot with the same name, if that filename 
-    //is either available or starts with the defined ARRAY_CACHE_FILE_PREFACE, or returns false.
-    
-  }
-  
-  private function cache->arrayToFile->read($variableName){
-    //Takes a string variable name like 'Debug' for $Debug and looks for a php file in the webroot with the same name. If that filename 
-    //is exists and starts with the define ARRAY_CACHE_FILE_PREFACE, the variable is unset, and then the file is included.
-    //This means that this function will always replace the existing variable with the contents of the file.
-    
+  private function configFile($filename, $data = false){
+    private $cacheFilePrefix = '<?php /* File Created by Legba configFile Cache Engine '.PHP_EOL.PHP_EOL;
+    private $cacheFileSuffix = PHP_EOL.PHP_EOL.'*/'.PHP_EOL;
+    if($data == false){
+      //We are simply loading the specified file and returning the contents as an array or false
+      //Make sure the file exists
+      if(!(file_exists($filename))){return false;}
+      //Get the contents of the file
+      $data = file_get_contents($filename);
+      //Remove the standard prefix
+      $data = rtrim($data, $cacheFilePrefix);
+      //Remove the standard suffix
+      $data = ltrim($data, $cacheFileSuffix);
+      //Decode the contents
+      $data = json_decode($data,true);
+      return $data;
+    }else{
+      //We are saving the data to the specified filename
+      //First make sure the data is utf8
+      $data = iconv(mb_detect_encoding($data, mb_detect_order(), true), "UTF-8", $data)
+      //Encode the data into pretty json
+      $data = json_encode($data, JSON_PRETTY_PRINT);
+      //Prepend and append the magic words
+      $data = $cacheFilePrefix.$data.$cacheFileSuffix;
+      //Save it to the specified file
+      $result = file_put_contents($filename, $data);
+      return $result;
+    }
   }
   
 }
