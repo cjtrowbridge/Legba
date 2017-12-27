@@ -4,6 +4,8 @@ include_once('Legba.php');
 
 $Legba = new Legba();
 
-$Legba->authenticate();
+//$Legba->authenticate();
 
-$Legba->router();
+//$Legba->router();
+
+die(PHP_EOL.'ok'.PHP_EOL);
