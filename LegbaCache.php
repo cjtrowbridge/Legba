@@ -37,8 +37,8 @@ class LegbaCache{
   */
   
   private function configFile($filename, $data = false){
-    private $cacheFilePrefix = '<?php /* File Created by Legba configFile Cache Engine '.PHP_EOL.PHP_EOL;
-    private $cacheFileSuffix = PHP_EOL.PHP_EOL.'*/'.PHP_EOL;
+    $cacheFilePrefix = '<?php /* File Created by Legba configFile Cache Engine '.PHP_EOL.PHP_EOL;
+    $cacheFileSuffix = PHP_EOL.PHP_EOL.'*/'.PHP_EOL;
     if($data == false){
       //We are simply loading the specified file and returning the contents as an array or false
       //Make sure the file exists
