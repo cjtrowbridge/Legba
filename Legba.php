@@ -18,6 +18,7 @@
 
 //Include the subclasse files
 include_once('LegbaCache.php');
+/*
 include_once('LegbaCron.php');
 include_once('LegbaCryptography.php');
 include_once('LegbaDatabase.php');
@@ -28,7 +29,7 @@ include_once('LegbaPlugin.php');
 include_once('LegbaRouter.php');
 include_once('LegbaSession.php');
 include_once('LegbaUser.php');
-
+*/
 class Legba{
   
   //Instantiate null references to all the subclasses
@@ -49,11 +50,8 @@ class Legba{
   //This holds the environment variables
   private $arrEnvironment = null;
   
-  //Initialize selected database to an empty string.
-  private $strSelectedDatabase = '';
-  
   //Native class primitives
-  function __construct($arrEnvironment = null){
+  function __construct(&$arrEnvironment = null){
     //If no environment array is passed in, set it to an empty array
     if($arrEnvironment == null){
       $arrEnvironment = array();
@@ -61,13 +59,14 @@ class Legba{
     //Check for config file and include it or prompt to create one
     //Check for session, and load it or create a new one
   }
+  /*
   function __destruct(){
     //TODO it's not clear what will need to go here, but this will come once all the other prototypes are implemented
   }
   function __call(){
     //TODO Include graceful error handling
   }
-  
+  */
   //Accessors for Subclasses: Instantiate them if they have not yet been instantiated, or else return them.
   public function &cache(){
     if($this -> $objCache == null){
