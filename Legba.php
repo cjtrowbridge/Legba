@@ -133,4 +133,11 @@ class Legba{
     }
     return $this -> $objUSer;
   }
+  
+  //Shared static helper-type functions
+  public static function utf8($input){
+    //Automatically converts a string from whatever it is encoded in, to utf8
+    //Copied from: https://stackoverflow.com/questions/7979567/php-convert-any-string-to-utf-8-without-knowing-the-original-character-set-or
+    return iconv(mb_detect_encoding($input, mb_detect_order(), true), "UTF-8", $input);
+  }
 }
