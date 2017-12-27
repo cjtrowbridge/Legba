@@ -148,4 +148,12 @@ class Legba{
     //Copied from: https://stackoverflow.com/questions/7979567/php-convert-any-string-to-utf-8-without-knowing-the-original-character-set-or
     return iconv(mb_detect_encoding($input, mb_detect_order(), true), "UTF-8", $input);
   }
+  public static function getRandomString($length = 32){
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $string = '';
+    for($i = 0; $i < $length; $i++){
+      $string .= $characters[mt_rand(0, strlen($characters) - 1)];
+    }
+    return $string;
+  }
 }
