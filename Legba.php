@@ -55,10 +55,7 @@ class Legba{
   
   //Native class primitives
   function __construct(&$arrEnvironment = null){
-    //If no environment array is passed in, set it to an empty array
-    if($arrEnvironment == null){
-      $arrEnvironment = array();
-    }
+    
     //Check for config file and include it or prompt to create one
     //Check for session, and load it or create a new one
   }
@@ -72,74 +69,74 @@ class Legba{
   */
   //Accessors for Subclasses: Instantiate them if they have not yet been instantiated, or else return them.
   public function &cache(){
-    if($this -> $objCache == null){
-      $this -> $objCache = new LegbaCache();
+    if($this->objCache == null){
+      $this->objCache = new LegbaCache();
     }
     return $this -> $objCache;
   }
   public function &config(){
-    if($this -> $objConfig == null){
-      $this -> $objConfig = new LegbaConfig($this, $arrConfig, $arrEnvironment);
+    if($this->objConfig == null){
+      $this->objConfig = new LegbaConfig($this, $arrConfig, $arrEnvironment);
     }
-    return $this -> $objConfig;
+    return $this->objConfig;
   }
   public function &cron(){
-    if($this -> $ojbCron == null){
-      $this -> $ojbCron = new LegbaCron();
+    if($this->ojbCron == null){
+      $this->ojbCron = new LegbaCron();
     }
-    return $this -> $ojbCron;
+    return $this->ojbCron;
   }
   public function &cryptography(){
-    if($this -> $objCryptography == null){
-      $this -> $objCryptography = new LegbaCryptography();
+    if($this->objCryptography == null){
+      $this->objCryptography = new LegbaCryptography();
     }
-    return $this -> $objCryptography;
+    return $this->objCryptography;
   }
   public function &database($strDatabase){
     $objDatabase = new LegbaDatabase($strDatabase, $this->$arrEnvironment);
     return $objDatabase;
   }
   public function &debug(){
-    if($this -> $objDebug == null){
-      $this -> $objDebug = new LegbaDebug();
+    if($this->objDebug == null){
+      $this->objDebug = new LegbaDebug();
     }
-    return $this -> $objDebug;
+    return $this->objDebug;
   }
   public function &event(){
-    if($this -> $objEvent == null){
-      $this -> $objEvent = new LegbaEvent();
+    if($this->objEvent == null){
+      $this->objEvent = new LegbaEvent();
     }
-    return $this -> $objEvent;
+    return $this->objEvent;
   }
   public function &permission(){
-    if($this -> $objPermission == null){
-      $this -> $objPermission = new LegbaPermission();
+    if($this->objPermission == null){
+      $this->objPermission = new LegbaPermission();
     }
-    return $this -> $objPermission;
+    return $this->objPermission;
   }
   public function &plugin(){
-    if($this -> $objPlugin == null){
-      $this -> $objPlugin = new LegbaPlugin();
+    if($this->objPlugin == null){
+      $this->objPlugin = new LegbaPlugin();
     }
-    return $this -> $objPlugin;
+    return $this->objPlugin;
   }
   public function &router(){
-    if($this -> $objRouter == null){
-      $this -> $objRouter = new LegbaRouter();
+    if($this->objRouter == null){
+      $this->objRouter = new LegbaRouter();
     }
-    return $this -> $objRouter;
+    return $this->objRouter;
   }
   public function &session(){
-    if($this -> $objSession == null){
-      $this -> $objSession = new LegbaSession();
+    if($this->objSession == null){
+      $this->objSession = new LegbaSession();
     }
-    return $this -> $objSession;
+    return $this->objSession;
   }
   public function &user(){
-    if($this -> $objUSer == null){
-      $this -> $objUSer = new LegbaUser();
+    if($this->objUSer == null){
+      $this->objUSer = new LegbaUser();
     }
-    return $this -> $objUSer;
+    return $this->objUSer;
   }
   
   //Shared static helper-type functions
