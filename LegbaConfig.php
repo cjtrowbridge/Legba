@@ -2,7 +2,7 @@
 
 class LegbaConfig{
   
-  private $blankConfig = array(
+  $blankConfig = array(
     'App' => array(
       'Default Session Length' => 60*60*24*7,
       'Encryption Key'         => $Legba -> getRandomString(),
@@ -51,7 +51,7 @@ class LegbaConfig{
     )
   );
   
-  private $blankEnvironment = array(
+  $blankEnvironment = array(
     
   );
   
