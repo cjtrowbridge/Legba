@@ -55,7 +55,8 @@ class LegbaCache{
     }else{
       //We are saving the data to the specified filename
       //First make sure the data is utf8
-      $data = iconv(mb_detect_encoding($data, mb_detect_order(), true), "UTF-8", $data);
+      //TODO this doesnt work but it's a best practice so eventually it should be fixed...
+      //$data = iconv(mb_detect_encoding($data, mb_detect_order(), true), "UTF-8", $data);
       //Encode the data into pretty json
       $data = json_encode($data, JSON_PRETTY_PRINT);
       //Prepend and append the magic words
