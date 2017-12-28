@@ -1,6 +1,6 @@
 <?php
 
-class LegbaConfig(){
+class LegbaConfig{
   
   private $blankConfig = array(
     'App' => array(
