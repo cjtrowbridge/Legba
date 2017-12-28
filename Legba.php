@@ -73,7 +73,7 @@ class Legba{
     if($this->objCache == null){
       $this->objCache = new LegbaCache();
     }
-    return $this -> $objCache;
+    return $this->objCache;
   }
   public function &config(){
     return $this->objConfig;
