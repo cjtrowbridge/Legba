@@ -19,12 +19,12 @@ class LegbaConfig{
       )
     ),
     'Debugging' => array(
-      'Enable Verbose' = false
+      'Enable Verbose' => false
     ),
-    'Locale'=>array(
+    'Locale'=> array(
       'timezone' => 'America/Los Angeles'
     ),
-    'OAuth'=array(
+    'OAuth'=> array(
       'Google' => array(
         'ClientID'     => '',
         'ClientSecret' => ''
