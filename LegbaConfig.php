@@ -70,7 +70,7 @@ class LegbaConfig{
       }
     }
     //If the config file is not filled in; die
-    if($arrConfig == $blankConfig){
+    if($arrConfig == $this->blankConfig){
       die('Please fill in missing config file.');
     }
     
