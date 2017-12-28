@@ -90,7 +90,7 @@ class Legba{
     }
     return $this->objCryptography;
   }
-  public function &database($strDatabase){
+  public function &database($strDatabase = ''){
     $objDatabase = new LegbaDatabase($strDatabase, $this->$arrEnvironment);
     return $objDatabase;
   }
