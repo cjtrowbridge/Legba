@@ -2,65 +2,62 @@
 
 class LegbaConfig{
   
-  //Default values for blank files
-  private $blankConfig = array(
-    'App' => array(
-      'Default Session Length' => 60*60*24*7,
-      'Encryption Key'         => $Legba -> getRandomString(),
-      'Name'                   => '',
-      'URL'                    => ''
-    ),
-    'Database' => array(
-      'Legba' => array(
-        'Type'     => '',
-        'Hostname' => '',
-        'Username' => '',
-        'Password' => '',
-        'Resource' => false
-      )
-    ),
-    'Debugging' => array(
-      'Enable Verbose' => false
-    ),
-    'Locale'=> array(
-      'timezone' => 'America/Los Angeles'
-    ),
-    'OAuth'=> array(
-      'Google' => array(
-        'ClientID'     => '',
-        'ClientSecret' => ''
-      ),
-      'Facebook' => array(
-        'AppID'     => '',
-        'AppSecret' => ''
-      )
-    ),
-    'SMTP' => array(
-      'Username'                   => '',
-      'Password'                   => '',
-      'Port'                       => 25,
-      'Host'                       => 'localhost',
-      'AdminEmail'                 => '',
-      'DefaultEmailSubject'        => '',
-      'DefaultEmailFrom'           => '',
-      'PHPMailerDebuggingFlag'     => 2
-      /*
-        0 = off (for production use)
-        1 = client messages
-        2 = client and server messages      
-      */
-    )
-  );
-
-  private $blankEnvironment = array(
-
-  );
-  
   function __construct(&$Legba, &$arrConfig, &$arrEnvironment){
     
+    //Default values for blank files
+    $blankConfig = array(
+      'App' => array(
+        'Default Session Length' => 60*60*24*7,
+        'Encryption Key'         => $Legba -> getRandomString(),
+        'Name'                   => '',
+        'URL'                    => ''
+      ),
+      'Database' => array(
+        'Legba' => array(
+          'Type'     => '',
+          'Hostname' => '',
+          'Username' => '',
+          'Password' => '',
+          'Resource' => false
+        )
+      ),
+      'Debugging' => array(
+        'Enable Verbose' => false
+      ),
+      'Locale'=> array(
+        'timezone' => 'America/Los Angeles'
+      ),
+      'OAuth'=> array(
+        'Google' => array(
+          'ClientID'     => '',
+          'ClientSecret' => ''
+        ),
+        'Facebook' => array(
+          'AppID'     => '',
+          'AppSecret' => ''
+        )
+      ),
+      'SMTP' => array(
+        'Username'                   => '',
+        'Password'                   => '',
+        'Port'                       => 25,
+        'Host'                       => 'localhost',
+        'AdminEmail'                 => '',
+        'DefaultEmailSubject'        => '',
+        'DefaultEmailFrom'           => '',
+        'PHPMailerDebuggingFlag'     => 2
+        /*
+          0 = off (for production use)
+          1 = client messages
+          2 = client and server messages      
+        */
+      )
+    );
+    $blankEnvironment = array(
+
+    );
 
     //Attempt to load config and environment from files
-    
     $arrConfig = $Legba -> cache() -> configFile('Config.php');
     if($arrConfig == false){
       //Unable to load config from file
