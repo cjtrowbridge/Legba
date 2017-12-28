@@ -2,10 +2,13 @@
 
 class LegbaConfig{
   
+  private $blankConfig = null;
+  private $blankEnvironment = null;
+  
   function __construct(&$Legba, &$arrConfig, &$arrEnvironment){
     
     //Default values for blank files
-    $blankConfig = array(
+    $this->blankConfig = array(
       'App' => array(
         'Default Session Length' => 60*60*24*7,
         'Encryption Key'         => $Legba -> getRandomString(),
@@ -53,7 +56,7 @@ class LegbaConfig{
         */
       )
     );
-    $blankEnvironment = array(
+    $this->blankEnvironment = array(
 
     );
 
