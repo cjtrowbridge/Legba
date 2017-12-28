@@ -55,8 +55,9 @@ class Legba{
   
   //Native class primitives
   function __construct(&$arrEnvironment = null){
-    
     //Check for config file and include it or prompt to create one
+    $this->objConfig = new LegbaConfig($this, $arrConfig, $arrEnvironment);
+    
     //Check for session, and load it or create a new one
   }
   /*
@@ -75,9 +76,6 @@ class Legba{
     return $this -> $objCache;
   }
   public function &config(){
-    if($this->objConfig == null){
-      $this->objConfig = new LegbaConfig($this, $arrConfig, $arrEnvironment);
-    }
     return $this->objConfig;
   }
   public function &cron(){
