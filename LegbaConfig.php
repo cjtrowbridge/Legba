@@ -2,10 +2,6 @@
 
 class LegbaConfig{
   
-  //Initialize variables to hold blank values
-  $blankConfig = null;
-  $blankEnvironment = null;
-  
   function __construct(&$Legba, &$arrConfig, &$arrEnvironment){
     //Default values for blank files
     $blankConfig = array(
@@ -63,7 +59,7 @@ class LegbaConfig{
 
     //Attempt to load config and environment from files
     
-    $arrConfig      = $Legba -> cache() -> configFile('Config.php');
+    $arrConfig = $Legba -> cache() -> configFile('Config.php');
     if($arrConfig == false){
       //Unable to load config from file
       //If the config file does not exist; create a new blank one
