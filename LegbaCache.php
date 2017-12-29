@@ -2,7 +2,15 @@
 
 class LegbaCache{
 
-  //TODO this needs to be split into several more subclasses for each type of cache
+  private $Legba          = null;
+  private $arrConfig      = null;
+  private $arrEnvironment = null;
+  
+  function __construct(&$Legba, &$arrConfig, &$arrEnvironment){
+    $this->Legba                 = $Legba;
+    $this->arrConfig             = $arrConfig;
+    $this->arrEnvironment        = $arrEnvironment;
+  }
   
   /*
   public function cache->memory->write($Identifier, $Data){
