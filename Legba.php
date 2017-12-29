@@ -19,10 +19,12 @@
 //Include the subclasse files
 include_once('LegbaCache.php');
 include_once('LegbaConfig.php');
-/*
-include_once('LegbaCron.php');
+
 include_once('LegbaCryptography.php');
 include_once('LegbaDatabase.php');
+/*
+include_once('LegbaCron.php');
+
 include_once('LegbaDebug.php');
 include_once('LegbaEvent.php');
 include_once('LegbaPermission.php');
@@ -37,7 +39,6 @@ class Legba{
   private $objCache        = null;
   private $objConfig       = null;
   private $objCron         = null;
-  private $objCryptography = null;
   private $objDebug        = null;
   private $objEvent        = null;
   private $objPermission   = null;
@@ -85,10 +86,8 @@ class Legba{
     return $this->ojbCron;
   }
   public function &cryptography(){
-    if($this->objCryptography == null){
-      $this->objCryptography = new LegbaCryptography();
-    }
-    return $this->objCryptography;
+    $objCryptography = new LegbaCryptography();
+    return $objCryptography;
   }
   public function &database($strDatabase = false){
     $objDatabase = new LegbaDatabase($strDatabase, $this, $arrConfig $arrEnvironment);
