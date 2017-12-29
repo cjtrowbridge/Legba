@@ -8,4 +8,6 @@ $Legba = new Legba();
 
 //$Legba->router();
 
-die(PHP_EOL.'ok'.PHP_EOL);
+echo '<p>Listing Databases</p>';
+$databases = $Legba->database();
+$Legba->pd($databases);
