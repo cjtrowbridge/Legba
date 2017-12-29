@@ -11,10 +11,6 @@ class LegbaDatabase{
     $this->selectedDatabaseAlias = $strDatabaseAlias;
     $this->Legba                 = $Legba;
     $this->arrConfig             = $arrConfig;
-    
-    echo PHP_EOL.'<p>Database Constructor Recieved Config:</p>'.PHP_EOL;
-    $this->Legba->pd($arrConfig);
-    
     $this->arrEnvironment        = $arrEnvironment;
     //Find the database in the credential list or throw fatal error
     //Connect to the database and set it as a property of this instance
@@ -32,7 +28,6 @@ class LegbaDatabase{
   public function getDatabases(){
     //return a list of all configured databases and their metadata
     $databases = array();
-    $this->Legba->pd($this->arrConfig);
     foreach($this->arrConfig['Database'] as $alias => $databaseConfig){
       $databases[$alias] = array(
         'Alias' => $alias,
