@@ -54,9 +54,9 @@ class LegbaCache{
       //Get the contents of the file
       $data = file_get_contents($filename);
       //Remove the standard prefix
-      $data = rtrim($data, $cacheFilePrefix);
+      $data = str_replace($cacheFilePrefix,'',$data);
       //Remove the standard suffix
-      $data = ltrim($data, $cacheFileSuffix);
+      $data = str_replace($cacheFileSuffix,'',$data);
       echo 'Raw File Contents'.PHP_EOL.$data.PHP_EOL;
       //Decode the contents
       $data = json_decode($data,true);
