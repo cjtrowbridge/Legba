@@ -58,7 +58,7 @@ class Legba{
   function __construct(&$arrEnvironment = null){
     //Check for config file and include it or prompt to create one
     $this->objConfig = new LegbaConfig($this, $arrConfig, $arrEnvironment);
-    
+    $this->pd($arrConfig['App']);
     //Check for session, and load it or create a new one
   }
   /*
