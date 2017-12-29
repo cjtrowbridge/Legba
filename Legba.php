@@ -142,10 +142,10 @@ class Legba{
   }
   
   //Shared static helper-type functions
-  public static function utf8($input){
-    //Automatically converts a string from whatever it is encoded in, to utf8
-    //Copied from: https://stackoverflow.com/questions/7979567/php-convert-any-string-to-utf-8-without-knowing-the-original-character-set-or
-    return iconv(mb_detect_encoding($input, mb_detect_order(), true), "UTF-8", $input);
+  public static function pd($input){
+    echo '<pre>';
+    var_dump($input);
+    echo '</pre>';
   }
   public static function getRandomString($length = 32){
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -154,5 +154,10 @@ class Legba{
       $string .= $characters[mt_rand(0, strlen($characters) - 1)];
     }
     return $string;
+  }
+  public static function utf8($input){
+    //Automatically converts a string from whatever it is encoded in, to utf8
+    //Copied from: https://stackoverflow.com/questions/7979567/php-convert-any-string-to-utf-8-without-knowing-the-original-character-set-or
+    return iconv(mb_detect_encoding($input, mb_detect_order(), true), "UTF-8", $input);
   }
 }
