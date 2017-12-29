@@ -4,8 +4,15 @@ class LegbaConfig{
   
   private $blankConfig = null;
   private $blankEnvironment = null;
+  private $Legba = null;
+  private $arrConfig = null;
+  private $arrEnvironment = null;
   
   function __construct(&$Legba, &$arrConfig, &$arrEnvironment){
+    
+    $this->Legba          = $Legba;
+    $this->arrConfig      = $arrConfig;
+    $this->arrEnvironment = $arrEnvironment;
     
     //Default values for blank files
     $this->blankConfig = array(
@@ -59,27 +66,28 @@ class LegbaConfig{
     $this->blankEnvironment = array(
 
     );
-
+  }
+  public function load(){
     //Attempt to load config and environment from files
-    $arrConfig = $Legba -> cache() -> configFile('Config.php');
-    if($arrConfig == false){
+    $this->arrConfig = $this->Legba -> cache() -> configFile('Config.php');
+    if($this->arrConfig == false){
       //Unable to load config from file
       //If the config file does not exist; create a new blank one
       if(!(file_exists('Config.php'))){
-        $Legba -> cache() -> configFile('Config.php', $this->blankConfig);
+        $this->Legba -> cache() -> configFile('Config.php', $this->blankConfig);
       }
     }
     //If the config file is not filled in; die
-    if($arrConfig == $this->blankConfig){
+    if($this->arrConfig == $this->blankConfig){
       die('Please fill in missing config file.');
     }
     
-    $arrEnvironment = $Legba -> cache() -> configFile('Environment.php');
-    if($arrEnvironment == false){
+    $this->arrEnvironment = $this->Legba -> cache() -> configFile('Environment.php');
+    if($this->arrEnvironment == false){
       //Unable to load environment from file
       //If the environment file does not exist; create a new blank one
       if(!(file_exists('Environment.php'))){
-        $Legba -> cache() -> configFile('Environment.php', $this->blankEnvironment);
+        $this->Legba -> cache() -> configFile('Environment.php', $this->blankEnvironment);
       }
     }
     
