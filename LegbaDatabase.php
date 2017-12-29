@@ -27,7 +27,7 @@ class LegbaDatabase{
         'Alias' => $alias,
         'Name'  => $databaseConfig['Name'],
         'Type'  => $databaseConfig['Type']
-      )
+      );
     }
     return $databases;
   }
