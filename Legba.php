@@ -48,15 +48,15 @@ class Legba{
   private $objUser         = null;
 
   //This holds the events and the code which will be triggered when the event happens
-  private $arrEvent = array();
+  private $arrEvent = null;
   //This holds the config settings
-  private $arrConfig = false;
+  private $arrConfig = null;
   //This holds the environment variables
-  private $arrEnvironment = false;
+  private $arrEnvironment = null;
   
   //Native class primitives
   function __construct(&$arrEnvironment = null){
-    //Check for config file and include it or prompt to create one
+    //Check for config file and load it or prompt to create one
     $this->objConfig = new LegbaConfig($this, $arrConfig, $arrEnvironment);
     $this->arrConfig = $this->objConfig->load();
     //Check for session, and load it or create a new one
