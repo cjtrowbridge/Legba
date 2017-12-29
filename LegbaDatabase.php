@@ -29,6 +29,7 @@ class LegbaDatabase{
     //return a list of all configured databases and their metadata
     $databases = array();
     $DatabaseList = $this->arrConfig['Database'];
+    $Legba->pd($DatabaseList);
     foreach($DatabaseList as $alias => $databaseConfig){
       $databases[$alias] = array(
         'Alias' => $alias,
