@@ -3,9 +3,15 @@
 class LegbaDatabase{
   
   private $selectedDatabaseAlias = null;
+  private $Legba          = null;
+  private $arrConfig      = null;
+  private $arrEnvironment = null;
   
   function __construct($strDatabaseAlias, &$Legba, &$arrConfig, &$arrEnvironment){
     $this->selectedDatabaseAlias = $strDatabaseAlias;
+    $this->Legba                 = $Legba;
+    $this->arrConfig             = $arrConfig;
+    $this->arrEnvironment        = $arrEnvironment;
     //Find the database in the credential list or throw fatal error
     //Connect to the database and set it as a property of this instance
     
@@ -19,10 +25,10 @@ class LegbaDatabase{
     //TODO make this be able to call abstract routes through data objects to return result arrays. ie $Legba->database('testDatabase')->table('name')->column('whatever')->anotherColumn('whatever2'); returns array.
     
   }*/
-  public function getDatabases(&$arrConfig){
+  public function getDatabases(){
     //return a list of all configured databases and their metadata
     $databases = array();
-    foreach($arrConfig['Database'] as $alias => $databaseConfig){
+    foreach($this->arrConfig['Database'] as $alias => $databaseConfig){
       $databases[$alias] = array(
         'Alias' => $alias,
         'Name'  => $databaseConfig['Name'],
