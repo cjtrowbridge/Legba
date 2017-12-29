@@ -1,13 +1,16 @@
 <?php
 
 class LegbaDatabase{
-  //$Legba->database('testDatabase')->sql('SELECT * FROM table');
   
-  function __construct($strDatabaseAlias, $arrEnvironment){
+  private $selectedDatabaseAlias = null;
+  
+  function __construct($strDatabaseAlias, &$Legba, &$arrConfig, &$arrEnvironment){
+    $this->selectedDatabaseAlias = $strDatabaseAlias;
     //Find the database in the credential list or throw fatal error
-    //Connect to the database
+    //Connect to the database and set it as a property of this instance
     
   }
+  /*
   function __destruct(){
     //Close the database connection
     
@@ -15,6 +18,18 @@ class LegbaDatabase{
   function __call($Name){
     //TODO make this be able to call abstract routes through data objects to return result arrays. ie $Legba->database('testDatabase')->table('name')->column('whatever')->anotherColumn('whatever2'); returns array.
     
+  }*/
+  public function getDatabases(&$arrConfig){
+    //return a list of all configured databases and their metadata
+    $databases = array();
+    foreach($arrConfig['Database'] as $alias => $databaseConfig){
+      $databases[$alias] = array(
+        'Alias' => $alias,
+        'Name'  => $databaseConfig['Name'],
+        'Type'  => $databaseConfig['Type']
+      )
+    }
+    return $databases;
   }
   
   
@@ -25,6 +40,10 @@ class LegbaDatabase{
   public function sql($SQL){
     //Run the query and return the results along with some performance data about the query
     
+  }
+  
+  public function getTables($database){
+    //return a list of tables in the specified database
   }
   
 }
