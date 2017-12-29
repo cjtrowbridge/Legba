@@ -72,7 +72,7 @@ class Legba{
   //Accessors for Subclasses: Instantiate them if they have not yet been instantiated, or else return them.
   public function &cache(){
     if($this->objCache == null){
-      $this->objCache = new LegbaCache();
+      $this->objCache = new LegbaCache($this, $arrConfig, $arrEnvironment);
     }
     return $this->objCache;
   }
