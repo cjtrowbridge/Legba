@@ -57,8 +57,10 @@ class LegbaCache{
       $data = rtrim($data, $cacheFilePrefix);
       //Remove the standard suffix
       $data = ltrim($data, $cacheFileSuffix);
+      echo 'Raw File Contents'.PHP_EOL.$data.PHP_EOL;
       //Decode the contents
       $data = json_decode($data,true);
+      echo 'Decoded File Contents'.PHP_EOL.$data.PHP_EOL;
       return $data;
     }else{
       //We are saving the data to the specified filename
