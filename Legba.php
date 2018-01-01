@@ -80,8 +80,9 @@ class Legba{
   }
   public function &config(){
     //return $this->objConfig;
-    var_dump($this->arrConfig);
-    return $this->arrConfig;
+    $config = $this->arrConfig;
+    var_dump($config);
+    return $config;
   }
   public function &cron(){
     if($this->ojbCron == null){
