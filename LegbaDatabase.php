@@ -25,15 +25,12 @@ class LegbaDatabase{
     //TODO make this be able to call abstract routes through data objects to return result arrays. ie $Legba->database('testDatabase')->table('name')->column('whatever')->anotherColumn('whatever2'); returns array.
     
   }*/
-  public function getDatabases(){
+  public function getDatabases(&$Legba){
     //return a list of all configured databases and their metadata
-    var_dump($arrConfig);
+    var_dump($Legba->config());
     
     $databases = array();
-    $DatabaseList = $this->arrConfig['Database'];
-    
-    echo PHP_EOL.'33: ';
-    var_dump($this->arrConfig);
+    $DatabaseList = $Legba->config()['Database'];
     
     echo PHP_EOL.'35: ';
     var_dump($DatabaseList);
