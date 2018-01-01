@@ -79,14 +79,7 @@ class Legba{
     return $this->objCache;
   }
   public function config(){
-    //return $this->objConfig;
-    echo PHP_EOL.'config() arrConfig:'.PHP_EOL;
-    var_dump($arrConfig);
-    echo PHP_EOL.'config() this->arrConfig:'.PHP_EOL;
-    var_dump($this->arrConfig);
-    
-    $config = $this->arrConfig;
-    return $config;
+    return $this->arrConfig;
   }
   public function &cron(){
     if($this->ojbCron == null){
