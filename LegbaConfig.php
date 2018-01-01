@@ -90,7 +90,7 @@ class LegbaConfig{
         $this->Legba -> cache() -> configFile('Environment.php', $this->blankEnvironment);
       }
     }
-    
+    echo PHP_EOL.'loaded config'.PHP_EOL;
     
   }
   
