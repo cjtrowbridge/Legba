@@ -70,6 +70,7 @@ class LegbaConfig{
   public function load(){
     //Attempt to load config and environment from files
     $this->arrConfig = $this->Legba -> cache() -> configFile('Config.php');
+    $this->Legba->pd($this->arrConfig);
     if($this->arrConfig == false){
       //Unable to load config from file
       //If the config file does not exist; create a new blank one
