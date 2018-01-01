@@ -57,8 +57,8 @@ class Legba{
   //Native class primitives
   function __construct(&$arrEnvironment = null){
     //Check for config file and load it or prompt to create one
-    $this->objConfig = new LegbaConfig($this, &$arrConfig, &$arrEnvironment);
-    $this->objConfig->load($this, &$arrConfig, &$arrEnvironment);
+    $this->objConfig = new LegbaConfig($this, $this->arrConfig, $this->arrEnvironment);
+    $this->objConfig->load($this, $this->arrConfig, $this->arrEnvironment);
     
     
     //Check for session, and load it or create a new one
