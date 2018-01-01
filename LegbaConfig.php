@@ -3,14 +3,14 @@
 class LegbaConfig{
   
   private $blankConfig = null;
-  //private $blankEnvironment = null;
-  //private $Legba = null;
+  private $blankEnvironment = null;
+  private $Legba = null;
   //private $arrConfig = null;
   //private $arrEnvironment = null;
   
   function __construct(&$Legba, &$arrConfig, &$arrEnvironment){
     
-    //$this->Legba          = $Legba;
+    $this->Legba          = $Legba;
     //$this->arrConfig      = $arrConfig;
     //$this->arrEnvironment = $arrEnvironment;
     
