@@ -80,7 +80,7 @@ class Legba{
   }
   public function &config(){
     //return $this->objConfig;
-    return $this->arrConfig();
+    return $this->arrConfig;
   }
   public function &cron(){
     if($this->ojbCron == null){
