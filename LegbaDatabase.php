@@ -9,9 +9,9 @@ class LegbaDatabase{
   
   function __construct($strDatabaseAlias, &$Legba, &$arrConfig, &$arrEnvironment){
     $this->selectedDatabaseAlias = $strDatabaseAlias;
-    $this->Legba                 = $Legba;
-    $this->arrConfig             = $arrConfig;
-    $this->arrEnvironment        = $arrEnvironment;
+    $this->Legba                 = &$Legba;
+    $this->arrConfig             = &$arrConfig;
+    $this->arrEnvironment        = &$arrEnvironment;
     //Find the database in the credential list or throw fatal error
     //Connect to the database and set it as a property of this instance
     
@@ -28,10 +28,10 @@ class LegbaDatabase{
   public function getDatabases(){
     //return a list of all configured databases and their metadata
     $databases = array();
-    $DatabaseList = $arrConfig['Database'];
+    $DatabaseList = $this->arrConfig['Database'];
     
     echo PHP_EOL.'33: ';
-    $this->Legba->pd($arrConfig);
+    $this->Legba->pd($this->arrConfig);
     echo PHP_EOL.'35';
     $this->Legba->pd($DatabaseList);
     foreach($DatabaseList as $alias => $databaseConfig){
