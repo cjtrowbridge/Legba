@@ -60,6 +60,8 @@ class Legba{
     $this->objConfig = new LegbaConfig($this, $arrConfig, $arrEnvironment);
     $this->objConfig->load($this, $arrConfig, $arrEnvironment);
     
+    echo PHPEOL.'config return state'.PHP_EOL;
+    var_dump($arrConfig);
     var_dump($this->config());
     
     //Check for session, and load it or create a new one
