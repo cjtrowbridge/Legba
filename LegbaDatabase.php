@@ -25,13 +25,10 @@ class LegbaDatabase{
   }*/
   public function getDatabases(&$Legba){
     //return a list of all configured databases and their metadata
-    var_dump($Legba->config());
     
     $databases = array();
     $DatabaseList = $Legba->config()['Database'];
     
-    echo PHP_EOL.'35: ';
-    var_dump($DatabaseList);
     foreach($DatabaseList as $alias => $databaseConfig){
       $databases[$alias] = array(
         'Alias' => $alias,
