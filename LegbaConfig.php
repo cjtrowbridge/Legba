@@ -25,6 +25,7 @@ class LegbaConfig{
       'Database' => array(
         'Legba' => array(
           'Type'     => '',
+          'Name'     => '',
           'Hostname' => '',
           'Username' => '',
           'Password' => '',
