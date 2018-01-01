@@ -95,7 +95,7 @@ class Legba{
     return $objCryptography;
   }
   public function &database($strDatabase = false){
-    $objDatabase = new LegbaDatabase($strDatabase, $this, $this->arrConfig, $this->arrEnvironment);
+    $objDatabase = new LegbaDatabase($strDatabase, $this, $arrConfig, $arrEnvironment);
     if($strDatabase == false){
       //If no database is specified, call the method to list databases. 
       //This logic can't be handled elegantly in the subclass because php subclass constructors can not return values.
