@@ -79,7 +79,7 @@ class Legba{
     }
     return $this->objCache;
   }
-  public function &config(){
+  public function config(){
     //return $this->objConfig;
     echo PHP_EOL.'config() arrConfig:'.PHP_EOL;
     var_dump($arrConfig);
