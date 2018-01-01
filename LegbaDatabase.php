@@ -7,11 +7,9 @@ class LegbaDatabase{
   private $arrConfig      = null;
   private $arrEnvironment = null;
   
-  function __construct($strDatabaseAlias, &$Legba, &$arrConfig, &$arrEnvironment){
+  function __construct($strDatabaseAlias, &$Legba){
     $this->selectedDatabaseAlias = $strDatabaseAlias;
     $this->Legba                 = &$Legba;
-    $this->arrConfig             = &$arrConfig;
-    $this->arrEnvironment        = &$arrEnvironment;
     //Find the database in the credential list or throw fatal error
     //Connect to the database and set it as a property of this instance
     
