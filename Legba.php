@@ -58,7 +58,7 @@ class Legba{
   function __construct(&$arrEnvironment = null){
     //Check for config file and load it or prompt to create one
     $this->objConfig = new LegbaConfig($this, $arrConfig, $arrEnvironment);
-    $this->arrConfig = $this->objConfig->load($this, $arrConfig, $arrEnvironment);
+    $this->objConfig->load($this, $arrConfig, $arrEnvironment);
     
     var_dump($this->config());
     
