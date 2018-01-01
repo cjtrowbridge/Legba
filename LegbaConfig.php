@@ -91,8 +91,6 @@ class LegbaConfig{
       }
     }
    
-    echo PHP_EOL.'config exit state: '.PHP_EOL;var_dump($arrConfig);
-    
   }
   
 }
