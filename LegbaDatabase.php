@@ -32,7 +32,8 @@ class LegbaDatabase{
     
     echo PHP_EOL.'33: ';
     var_dump($this->arrConfig);
-    echo PHP_EOL.'35';
+    var_dump($arrConfig);
+    echo PHP_EOL.'35: ';
     var_dump($DatabaseList);
     foreach($DatabaseList as $alias => $databaseConfig){
       $databases[$alias] = array(
