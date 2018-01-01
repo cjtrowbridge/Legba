@@ -60,7 +60,7 @@ class Legba{
     $this->objConfig = new LegbaConfig($this, $arrConfig, $arrEnvironment);
     $this->arrConfig = $this->objConfig->load($this, $arrConfig, $arrEnvironment);
     
-    var_dump($this->arrConfig);
+    var_dump($this->config());
     
     //Check for session, and load it or create a new one
   }
